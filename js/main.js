@@ -54,8 +54,18 @@ $(document).ready(function() {
         });
 
         scroll_fn();
+    } else {
+        let jinlik_ind = 1;
+        let homeInterval = setInterval(() => {
+            jinlik_ind++;
+            if (jinlik_ind == jQuery(".home__jingliki div").length) {
+                jinlik_ind = 1;
+            }
+            jQuery(".home__jingliki div").removeClass("_active");
+            jQuery(".home__jingliki div").eq(jinlik_ind).addClass("_active");
+        }, 1500);
     }
-
+    
     $(".header_block_burger").click(function() {
         $(".header").toggleClass("show");
         $(".header_drop").slideToggle();
